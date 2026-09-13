@@ -3,7 +3,10 @@ from django.shortcuts import render, redirect
 from .models import Paciente
 from .models import Medico
 from .models import Especialidad
+from django.shortcuts import render
 
+def home(request):
+    return render(request, 'app_hospital/home.html')
 
 def saludo(request):
     return HttpResponse('Hola Mundo')
@@ -51,3 +54,4 @@ def agregar_medico(request):
 
     lista_especialidades = Especialidad.objects.all()
     return render(request, 'app_hospital/agregar_medico.html', {'especialidades': lista_especialidades})
+
